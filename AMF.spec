@@ -8,9 +8,6 @@ BuildArch:      noarch
 
 Source0:        https://github.com/GPUOpen-LibrariesAndSDKs/AMF/archive/v%{version}/%{name}-%{version}.tar.gz
 
-#BuildRequires:  
-#Requires:       
-
 %description
 A light-weight, portable multimedia framework that abstracts away most of the
 platform and API-specific details. %{name} is supported on the closed source AMD
