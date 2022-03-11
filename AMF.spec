@@ -1,12 +1,14 @@
 Name:           AMF
 Version:        1.4.23
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Advanced Media Framework (AMF) SDK
 License:        MIT
 URL:            https://gpuopen.com/advanced-media-framework/
 BuildArch:      noarch
 
-Source0:        https://github.com/GPUOpen-LibrariesAndSDKs/AMF/archive/v%{version}/%{name}-%{version}.tar.gz
+# Cleaned up tarballi without Thirdparty folder:
+Source0:        %{name}-cleaned-%{version}.tar.gz
+Source1:        %{name}-tarball.sh
 
 %description
 A light-weight, portable multimedia framework that abstracts away most of the
@@ -49,9 +51,12 @@ ln -sf ../../include/AMF %{buildroot}%{_usrsrc}/%{name}/include
 %{_includedir}/%{name}/
 
 %files samples
-%doc amf/doc/*
 %{_usrsrc}/%{name}
 
 %changelog
+* Sun Feb 13 2022 Simone Caronni <negativo17@gmail.com> - 1.4.23-2
+- Remove Thirdparty folder from sources and provide script to recreate tarball.
+- Remove duplicated docs in samples subpackage.
+
 * Thu Feb 10 2022 Simone Caronni <negativo17@gmail.com> - 1.4.23-1
 - First build.
